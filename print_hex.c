@@ -20,8 +20,6 @@ int print_hex(va_list val)
 	}
 	counter++;
 	array = malloc(counter * sizeof(int));
-	if (array == NULL)
-		return (NULL);
 
 	for (i = 0; i < counter; i++)
 	{

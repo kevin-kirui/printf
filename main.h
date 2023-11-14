@@ -32,8 +32,10 @@ int print_pointer(va_list val);
 int print_hex_extra(unsigned long int num);
 int print_reverse(va_list args);
 int print_rot13str(va_list args);
-
-
+void handle_flags_custom(va_list val, int flags, int width, char length_modifier, char specifier, int zero_flag, int precision);
+void handle_flags_zero(va_list val, int flags, int width, char length_modifier, char specifier, int zero_flag, int precision);
+void handle_flags_minus(va_list val, int flags, int width, char length_modifier, char specifier, int zero_flag, int precision, int minus_flag);
+void handle_flags(va_list val, int flags, char specifier);
 
 #endif
 
