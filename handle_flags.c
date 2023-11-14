@@ -1,6 +1,6 @@
 #include "main.h"
 
-/**prints_flags - prints flags
+/**prints_flags - handles flags
  * @+: plus
  * Return: counter.
  */

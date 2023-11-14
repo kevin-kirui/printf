@@ -1,18 +1,21 @@
 #include "main.h"
 
-void handle_flags(va_list val, int flags, int width, char length_modifier, char specifier, int zero_flag, int precision, int minus_flag);
-
-int main() {
-	handle_flags((va_list)NULL, 7, 10, 'l', 'd', 1, 5, 1);  // Binary: 111 (All flags: +, space, #)
+/**
+ * print_flags_zero - handle zero flag
+ * @o: zero
+ * Return: counter.
+ */
+int main() 
+{
+	handle_flags_zero((va_list)NULL, 7, 10, 'l', 'd', 1, 5);
 
 	return 0;
 }
 
-void handle_flags_minus(va_list val, int flags, int width, char length_modifier, char specifier, int zero_flag, int precision, int minus_flag) {
-	char buffer[30];
+void handle_flags_zero(va_list val, int flags, int width, char length_modifier, char specifier, int zero_flag, int precision) 
+{
 	int pos = 0;
 
-	// Handle flags
 	if (flags & 1) {
 		buffer[pos++] = '+';
 	}
@@ -25,10 +28,6 @@ void handle_flags_minus(va_list val, int flags, int width, char length_modifier,
 
 	if (zero_flag == 1) {
 		buffer[pos++] = '0';
-	}
-
-	if (minus_flag == 1) {
-		buffer[pos++] = '-';
 	}
 
 	if (width > 0) {
@@ -49,6 +48,6 @@ void handle_flags_minus(va_list val, int flags, int width, char length_modifier,
 	buffer[pos] = '\0';
 
 	for (int i = 0; buffer[i] != '\0'; i++) {
-		_putchar(buffer[i]);
+		putchar(buffer[i]);
 	}
 }

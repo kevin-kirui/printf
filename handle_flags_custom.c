@@ -1,13 +1,19 @@
 #include "main.h"
 
-int main() {
-    handle_flags((va_list)NULL, 7, 10, 'l', 'd', 1, 5);  // Binary: 111 (All flags: +, space, #)
+/**
+ * print_flags_custom - custom flags
+ * @custom: ...
+ * Return: counter.
+ */
+int main() 
+{
+    handle_flags((va_list)NULL, 7, 10, 'l', 'd', 1, 5);
 
     return 0;
 }
 
-void handle_flags_custom(va_list val, int flags, int width, char length_modifier, char specifier, int zero_flag, int precision) {
-
+void handle_flags_custom(va_list val, int flags, int width, char length_modifier, char specifier, int zero_flag, int precision) 
+{
     char buffer[30];
     int pos = 0;
 
