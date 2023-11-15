@@ -4,7 +4,7 @@
  * @val: arguments.
  * Return: counter.
  */
-int print_HEX(va_list val)
+void print_HEX(void)
 {
 	int i;
 	int *array;
