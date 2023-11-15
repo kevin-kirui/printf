@@ -1,18 +1,24 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
- * handle_flags_width - prints flags width
- * @width: ...
- * Return: counter.
+ * main - Entry point of the program
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
 	int " ";
 	char " ";
-	handle_flags((va_list)NULL, 7, 10, 'l', 'd');
+	print_flags_width((va_list)NULL, 7, 10, 'l', 'd');
 	return (0);
 }
-void handle_flags(va_list val, int " ", char " ")
+/**
+ * print_flags_width - Example function with width parameter
+ * @width: The width parameter description
+ *
+ * Return: Return value description
+ */
+void print_flags_width(va_list val, int " ", char " ")
 {
 	char buffer[20];
 	int pos = 0;
