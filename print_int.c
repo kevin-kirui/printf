@@ -15,7 +15,7 @@ int print_i(va_list args)
 
 	if (last < 0)
 	{
-		_putchar('-');
+		putchar('-');
 		num = -num;
 		n = -n;
 		last = -last;
@@ -32,13 +32,13 @@ int print_i(va_list args)
 		while (exp > 0)
 		{
 			digit = num / exp;
-			_putchar(digit + '0');
+			putchar(digit + '0');
 			num = num - (digit * exp);
 			exp = exp / 10;
 			i++;
 		}
 	}
-	_putchar(last + '0');
+	putchar(last + '0');
 
 	return (i);
 }
@@ -61,7 +61,7 @@ int print_d(va_list args)
 
 	if (last < 0)
 	{
-		_putchar('-');
+		putchar('-');
 		num = -num;
 		n = -n;
 		last = -last;
@@ -77,12 +77,12 @@ int print_d(va_list args)
 		for (; exp > 0; exp /= 10)
 		{
 			digit = num / exp;
-			_putchar(digit + '0');
+			putchar(digit + '0');
 			num -= digit * exp;
 			i++;
 		}
 	}
-	_putchar(last + '0');
+	putchar(last + '0');
 	return (i);
 }
 

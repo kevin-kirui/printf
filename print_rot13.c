@@ -22,14 +22,14 @@ int print_rot13str(va_list args)
 		{
 			if (s[i] == al[j])
 			{
-				_putchar(bl[j]);
+				putchar(bl[j]);
 				counter++;
 				k = 1;
 			}
 		}
 		if (!k)
 		{
-			_putchar(s[i]);
+			putchar(s[i]);
 			counter++;
 		}
 	}

@@ -16,14 +16,14 @@ int print_s(va_list val)
 		s = "(null)";
 		len = _strlen(s);
 		for (i = 0; i < len; i++)
-			_putchar(s[i]);
+			putchar(s[i]);
 		return (len);
 	}
 	else
 	{
 		len = _strlen(s);
 		for (i = 0; i < len; i++)
-			_putchar(s[i]);
+			putchar(s[i]);
 		return (len);
 	}
 }

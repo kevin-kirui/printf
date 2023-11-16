@@ -5,7 +5,6 @@
  * @s: string
  * Return: integer.
  */
-
 int _strlen(char *s)
 {
 	int i;
@@ -13,7 +12,6 @@ int _strlen(char *s)
 	for (i = 0; s[i] != 0; i++)
 		;
 	return (i);
-
 }
 
 /**
@@ -21,7 +19,6 @@ int _strlen(char *s)
  * @s: string
  * Return: integer
  */
-
 int _strlenc(const char *s)
 {
 	int i;

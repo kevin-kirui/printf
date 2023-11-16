@@ -8,12 +8,11 @@
 
 typedef struct format
 {
-	char *id;
-	int (*f)();
+        char *id;
+        int (*f)();
 }match;
-int _printf(const char * const format, ...);
-int _putchar(char c);
 int _printf(const char *format, ...);
+int putss(char *c);
 int print_c(va_list val);
 int print_s(va_list val);
 void print_buffer(char buffer[], int *buff_ind);
@@ -27,6 +26,7 @@ int print_unsigned(va_list args);
 int print_oct(va_list val);
 int print_hex(va_list val);
 int print_HEX(va_list val);
+void handle_flags(va_list val, int flags, char specifier);
 int print_HEX_extra(unsigned int num);
 int print_exc_string(va_list val);
 int print_pointer(va_list val);
@@ -39,5 +39,8 @@ int get_precision(const char *format, int *index, va_list args);
 int get_size(const char *format, int *index);
 int handle_print(const char *format, int *index, va_list args, char *buffer, int flags, int width, int precision, int size);
 void handle_flags(va_list val, int flags, char specifier);
+void print_buffer(char buffer[], int *buff_ind);
+
 
 #endif
+

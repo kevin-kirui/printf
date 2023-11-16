@@ -30,7 +30,7 @@ int print_hex(va_list val)
 	{
 		if (array[i] > 9)
 			array[i] = array[i] + 40;
-		_putchar(array[i] + '0');
+		putchar(array[i] + '0');
 	}
 	free(array);
 	return (counter);

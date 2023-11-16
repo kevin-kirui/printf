@@ -56,6 +56,6 @@ void print_flags_minus(va_list val, int flags, int width, char length_modifier, 
 
 	for (int i = 0; buffer[i] != '\0'; i++)
 	{
-		_putchar(buffer[i]);
+		putchar(buffer[i]);
 	}
 }
