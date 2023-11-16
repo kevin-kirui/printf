@@ -1,10 +1,11 @@
 #include "main.h"
 
 /**
- * prints_flags - handles flags
+ * handle_flags - handles flags
  * @+: plus
  * Return: counter.
  */
+
 int main(void)
 {
 	handle_flags(NULL, 7, 'd');
@@ -23,14 +24,17 @@ void handle_flags(va_list val, int flags, char specifier)
 		{
 			buffer[pos++] = '+';
 		}
+
 		if (flags & 2)
 		{
 			buffer[pos++] = ' ';
 		}
+
 		if (flags & 4)
 		{
 			buffer[pos++] = '#';
 		}
+
 		buffer[pos++] = specifier;
 		buffer[pos] = '\0';
 
@@ -39,3 +43,4 @@ void handle_flags(va_list val, int flags, char specifier)
 			putchar(buffer[i]);
 		}
 	}
+}

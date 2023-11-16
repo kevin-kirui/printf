@@ -5,47 +5,50 @@
  * @o: zero
  * Return: counter.
  */
-int main(void)
+
+void handle_flags(va_list val, int flags, int width, char length_modifier, char specifier, int zero_flag, int precision)
 {
-	handle_flags_zero((va_list)NULL, 7, 10, 'l', 'd', 1, 5);
-	return (0);
-}
-void handle_flags_zero(va_list val, int flags, int width, char length_modifier, char specifier, int zero_flag, int precision)
-{
+	char buffer[100];
 	int pos = 0;
 
 	if (flags & 1)
 	{
 		buffer[pos++] = '+';
 	}
+
 	if (flags & 2)
 	{
 		buffer[pos++] = ' ';
 	}
+
 	if (flags & 4)
 	{
 		buffer[pos++] = '#';
 	}
+
 	if (zero_flag == 1)
 	{
 		buffer[pos++] = '0';
 	}
+
 	if (width > 0)
 	{
 		pos += sprintf(&buffer[pos], "%d", width);
 	}
+
 	if (precision >= 0)
 	{
 		pos += sprintf(&buffer[pos], ".%d", precision);
 	}
+
 	if (length_modifier == 'l')
 	{
 		buffer[pos++] = 'l';
-	}
-	else if (length_modifier == 'h')
+	} else if (length_modifier == 'h')
 	{
 		buffer[pos++] = 'h';
 	}
+
 	buffer[pos++] = specifier;
 	buffer[pos] = '\0';
 

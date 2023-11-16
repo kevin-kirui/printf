@@ -1,17 +1,18 @@
 #include "main.h"
 
 /**
- * @brief This function handles flags for a specific case.
+ * print_flags_minus - handles flags
+ * @brief: This function handles flags for a specific case.
  *
- * @param flag The flag to handle.
- * @return The result of the flag handling.
+ * @param: flag The flag to handle.
+ * @Return: The result of the flag handling.
  */
 int main(void)
 {
-	print_flags_minus((va_list)NULL, 7, 10, 'l', 'd', 1, 5, 1);
+	print_flags_minus((va_list)7, 10, 'l', 'd', 1, 5, 1);
 	return (0);
 }
-void print_flags_minus(va_list val, int flags, int width, char length_modifier, char specifier, int zero_flag, int precision, int minus_flag)
+void print_flags_minus(int flags, int width, char length_modifier, char specifier, int zero_flag, int precision, int minus_flag)
 {
 	char buffer[30];
 	int pos = 0;
