@@ -5,53 +5,38 @@
  * @custom: ...
  * Return: counter.
  */
+#include <stdio.h>
+
+void handle_flags(int flags, char specifier, int zero_flag, int width, int precision, char length_modifier);
+
 int main(void)
 {
-	handle_flags((va_list)NULL, 7, 10, 'l', 'd', 1, 5);
-	return (0);
+	handle_flags(7, 'd', 1, 10, 5, 'l');
+	return 0;
 }
-void handle_flags_custom(va_list val, int flags, int width, char length_modifier, char specifier, int zero_flag, int precision)
+void handle_flags(int flags, char specifier, int zero_flag, int width, int precision, char length_modifier)
 {
+	printf("Flags: %d, Specifier: %c\n", flags, specifier);
+	
 	char buffer[30];
 	int pos = 0;
-
-	if (flags & 1)
+	
+	buffer[pos++] = (flags & 1) ? '+' : 0;
+	buffer[pos++] = (zero_flag == 1) ? '0' : 0;
+	pos += sprintf(&buffer[pos], (width > 0) ? "%d" : "", width);
+	pos += sprintf(&buffer[pos], (precision >= 0) ? ".%d" : "", precision);
+	
+	switch (length_modifier)
 	{
-		buffer[pos++] = '+';
-	}
-	if (flags & 2)
-	{
-		buffer[pos++] = ' ';
-	}
-	if (flags & 4)
-	{
-		buffer[pos++] = '#';
-	}
-	if (zero_flag == 1)
-	{
-		buffer[pos++] = '0';
-	}
-	if (width > 0)
-	{
-		pos += sprintf(&buffer[pos], "%d", width);
-	}
-	if (precision >= 0)
-	{
-		pos += sprintf(&buffer[pos], ".%d", precision);
-	}
-	if (length_modifier == 'l')
-	{
-		buffer[pos++] = 'l';
-	}
-	else if (length_modifier == 'h')
-	{
-		buffer[pos++] = 'h';
+		case 'l':
+		case 'h':
+			buffer[pos++] = length_modifier;
+			break;
+		default:
+			break;
 	}
 	buffer[pos++] = specifier;
 	buffer[pos] = '\0';
-
-	for (int i = 0; buffer[i] != '\0'; i++)
-	{
-		putchar(buffer[i]);
-	}
+	puts(buffer);
 }
+

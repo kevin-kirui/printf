@@ -12,6 +12,7 @@ typedef struct format
         int (*f)();
 }match;
 int _printf(const char *format, ...);
+int my_putchar(char c);
 int putss(char *c);
 int print_c(va_list val);
 int print_s(va_list val);
