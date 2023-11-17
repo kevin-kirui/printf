@@ -4,7 +4,7 @@
  * @val: arguments.
  * Return: counter.
  */
-void print_HEX(void)
+int print_HEX(va_list val)
 {
 	int i;
 	int *array;
@@ -20,16 +20,13 @@ void print_HEX(void)
 	counter++;
 	array = malloc(counter * sizeof(int));
 
-	if (array == NULL)
-		return (NULL);
-
 	for (i = 0; i < counter; i++)
 	{
 		array[i] = tem % 16;
 		tem /= 16;
 	}
 
-	for (i = counter - 1; i >= 0; i++)
+	for (i = counter - 1; i >= 0; i--)
 	{
 		if (array[i] > 9)
 			array[i] = array[i] + 7;
