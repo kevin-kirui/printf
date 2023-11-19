@@ -1,22 +1,18 @@
 #include "main.h"
 
 /**
- * putss - print string
+ * putss - print a string to stdout
  *
- * @c: string
- *
- * Return: no of byte
+ * @str: input string
+ * Return: number of characters printed
  */
-int putss(char *c)
+int putss(char *str)
 {
-	int count = 0;
+    int i;
 
-	if (c)
-	{
-		for ( count = 0; c[count] != '\0'; count ++)
-		{
-			putchar(c[count]);
-		}
-	}
-	return (count);
+    for (i = 0; str[i] != '\0'; i++)
+        putchar(str[i]);
+
+    return i;
 }
+
