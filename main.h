@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef _MAIN_H_
+#define _MAIN_H_
 #include <stdio.h>
 #include <limits.h>
 #include <stdlib.h>
@@ -22,6 +22,8 @@ typedef struct format
 int _printf(const char *format, ...);
 int _putchar(char c);
 int putss(char *str);
+int print_c(va_list val);
+int print_s(va_list val);
 
 #endif
 
