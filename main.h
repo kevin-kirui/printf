@@ -21,8 +21,7 @@ typedef struct format
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-int putss(char *c);
-
+int putss(char *str);
 
 #endif
 
