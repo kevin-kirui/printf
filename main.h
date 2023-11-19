@@ -5,14 +5,22 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdarg.h>
+#include <string.h>
+
+/**
+ * struct format - converter for printf
+ * @ph: type char pointer of specifier
+ * @function: function for conversion specifier
+ */
 
 typedef struct format
 {
-        char *id;
-        int (*f)();
-}match;
+        char *ph;
+        int (*function)();
+} convert;
+
 int _printf(const char *format, ...);
-int my_putchar(char c);
+int _putchar(char c);
 int putss(char *c);
 int print_c(va_list val);
 int print_s(va_list val);
