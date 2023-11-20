@@ -1,14 +1,12 @@
 #include "main.h"
-
 /**
- * _printf - print to stdout formatted text
- *
- * @format: format specifier
- * Return: number of bytes printed
+ * _printf - is a function that selects the correct function to print.
+ * @format: identifier to look for.
+ * Return: the length of the string.
  */
 int _printf(const char *format, ...)
 {
-	unsigned int i, s_count, count = 0;
+	unsigned int i, count = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -19,24 +17,26 @@ int _printf(const char *format, ...)
 		{
 			putchar(format[i]);
 		}
-		else if (format[i + 1] == 'c')
+		else
 		{
-			putchar(va_arg(args, int));
-			i++;
-
+			switch (format[++i])
+			{
+				case 'c':
+					putchar(va_arg(args, int));
+					break;
+				case 's':
+					count += putss(va_arg(args, char *)) - 1;
+					break;
+				case '%':
+					putchar('%');
+					break;
+				default:
+					break;
+			}
 		}
-		else if (format[i + 1] == 's')
-		{
-			s_count = putss(va_arg(args, char *));
-			i++;
-			count += (s_count - 1);
-		}
-		else if (format[i + 1] == '%')
-		{
-			putchar('%');
-		}
-		count += 1;
+		count++;
 	}
+
 	va_end(args);
 	return (count);
 }
