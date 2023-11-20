@@ -12,13 +12,11 @@
  * @ph: type char pointer of specifier
  * @function: function for conversion specifier
  */
-
 typedef struct format
 {
-        char *ph;
-        int (*function)();
+	char *ph;
+	int (*function)();
 } convert;
-
 int _printf(const char *format, ...);
 int _putchar(char c);
 int putss(char *str);
