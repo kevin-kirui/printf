@@ -13,6 +13,7 @@
  * @ph: type char pointer of specifier
  * @function: function for conversion specifier
  */
+
 typedef struct format
 {
 	char *ph;
