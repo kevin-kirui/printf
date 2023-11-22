@@ -1,26 +1,19 @@
-#include <stdio.h>
 #include <stdarg.h>
+#include "main.h"
 
 /**
  * _printf - Custom implementation of the printf function
  * @format: Format string with placeholders for the arguments
- * @...: Variable number of arguments to be formatted and printed
  *
  * Return: The number of characters printed (excluding null byte)
  */
-int _printf(const char *format, ...);
-int putss(const char *str);
-
-int main(void)
-{
-	_printf("Hello, %s!\n", "World");
-	return (0);
-}
-
 int _printf(const char *format, ...)
 {
 	unsigned int i, count = 0;
 	va_list args;
+
+	if (!format || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
 
 	va_start(args, format);
 
@@ -28,46 +21,32 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			putchar(format[i]);
+			my_putchar(format[i]);
+		}
+		else if (format[i + 1] == 'c')
+		{
+			my_putchar(va_arg(args, int));
+			i++;
+		}
+		else if (format[i + 1] == 's')
+		{
+			count += putss(va_arg(args, const char *));
+			i++;
+		}
+		else if (format[i + 1] == '%')
+		{
+			my_putchar('%');
+			count++;
 		}
 		else
 		{
-			switch (format[++i])
-			{
-				case 'c':
-					putchar(va_arg(args, int));
-					break;
-				case 's':
-					count += putss(va_arg(args, char *)) - 1;
-					break;
-				case '%':
-					putchar('%');
-					break;
-				default:
-					break;
-			}
+			my_putchar('%');
+			my_putchar(format[i]);
+			count += 2;
 		}
-		count++;
 	}
+
 	va_end(args);
 	return (count);
-}
-
-/**
- * putss - Custom function to print a string
- * @str: String to be printed
- *
- * Return: The number of characters printed (excluding null byte)
- */
-int putss(const char *str)
-{
-	int i = 0;
-
-	while (str[i] != '\0')
-	{
-		putchar(str[i]);
-		i++;
-	}
-	return (i);
 }
 

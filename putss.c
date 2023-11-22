@@ -1,29 +1,24 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
- * putss - print a string to stdout
+ * putss - Custom function to print a string
+ * @str: String to be printed
  *
- * @str: input string
- * Return: number of characters printed
+ * Return: The number of characters printed (excluding null byte)
  */
-int putss(char *str);
-
-int main(void)
+int putss(const char *str)
 {
-	char myString[] = "Hello, World!";
-	int result;
+	int count = 0;
 
-	result = putss(myString);
-	return (result);
-}
-int putss(char *str)
-{
-	int i;
-
-	for (i = 0; str[i] != '\0'; i++)
+	if (str)
 	{
-		putchar(str[i]);
+		while (str[count] != '\0')
+		{
+			my_putchar(str[count]);
+			count++;
+		}
 	}
-	return (i);
+
+	return count;
 }
+

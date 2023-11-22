@@ -1,11 +1,9 @@
-#ifndef MAIN_H_
-#define MAIN_H_
-#include <stdio.h>
-#include <limits.h>
+#ifndef _MAIN_H_
+#define _MAIN_H_
+
+#include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <stdarg.h>
-#include <string.h>
 
 /**
  * struct format - converter for printf
@@ -14,14 +12,13 @@
  */
 typedef struct format
 {
-    char *id;
-    int (*f)(void);
+	char *id;
+	int (*f)(void);
 } match;
 
+int my_putchar(char c);
 int _printf(const char *format, ...);
-int putss(char *str);
-int print_c(va_list val);
-int print_s(va_list val);
+int putss(const char *str);
 
 #endif
 
