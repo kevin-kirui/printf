@@ -6,7 +6,6 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <string.h>
-#include "putss.h"
 
 /**
  * struct format - converter for printf
@@ -20,8 +19,9 @@ typedef struct format
 } match;
 
 int _printf(const char *format, ...);
-int putss(const char *str);
+int putss(char *str);
 int print_c(va_list val);
 int print_s(va_list val);
+
 #endif
 
