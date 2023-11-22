@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include <stdarg.h>
-
+#include <stdio.h>
+#include "putss.h"
+#include <stdarg.h>
+/**
+ * _printf - Custom implementation of the printf function
+ * @format: Format string with placeholders for the arguments
+ * @...: Variable number of arguments to be formatted and printed
+ *
+ * Return: The number of characters printed (excluding null byte)
+ */
 int _printf(const char *format, ...)
 {
 	unsigned int i, count = 0;
@@ -36,7 +45,13 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-int puts(const char *str)
+/**
+ * putss - Custom function to print a string
+ * @str: String to be printed
+ *
+ * Return: The number of characters printed (excluding null byte)
+ */
+int putss(const char *str)
 {
 	int i = 0;
 
@@ -47,3 +62,4 @@ int puts(const char *str)
 	}
 	return (i);
 }
+
