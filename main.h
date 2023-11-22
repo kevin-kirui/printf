@@ -19,6 +19,8 @@ typedef struct format
 	char *ph;
 	int (*function)();
 } convert;
+
+typedef int (*handler_func)(const char *, va_list);
 int _printf(const char *format, ...);
 int _putchar(char c);
 int putss(char *str);

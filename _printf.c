@@ -1,48 +1,41 @@
 #include "main.h"
 
 /**
- * _printf - prints function
+ * _printf - print to stdout formatted text
+ *
  * @format: format specifier
- * Return: number of chars printed
+ * Return: number of bytes printed
  */
 int _printf(const char *format, ...)
 {
-	int len = 0;
+	unsigned int i, s_count, count = 0;
 	va_list args;
-	char c;
 
 	va_start(args, format);
-	while (*format)
-	{
-		if (*format == '%')
-		{
-			switch (*++format)
-			{
-				case 'c':
-					c = (char)va_arg(args, int);
-					len += putchar(c);
-					break;
-				case 's':
-					len += puts(va_arg(args, char *));
-					break;
-				case '%':
-					putchar('%');
-					len++;
-					break;
-				default:
-					putchar('%');
-					putchar(*format);
-					len += 2;
-			}
-		}
-		else
-		{
-			putchar(*format);
-			len++;
-		}
 
-		format++;
+	for (i = 0; format[i] != '\0'; i++)
+	{
+		if (format[i] != '%')
+		{
+			putchar(format[i]);
+		}
+		else if (format[i + 1] == 'c')
+		{
+		putchar(va_arg(args, int));
+			i++;
+		}
+		else if (format[i + 1] == 's')
+		{
+			s_count = putss(va_arg(args, char *));
+			i++;
+			count += (s_count - 1);
+		}
+		else if (format[i + 1] == '%')
+		{
+			putchar('%');
+		}
+		count += 1;
 	}
 	va_end(args);
-	return (len);
+	return (count);
 }
