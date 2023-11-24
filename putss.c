@@ -6,19 +6,19 @@
  *
  * Return: The number of characters printed (excluding null byte)
  */
-int putss(const char *str)
+int putss(char *c)
 {
 	int count = 0;
 
-	if (str)
+	if (c)
 	{
-		while (str[count] != '\0')
+		for (count = 0; c[count] != '\0'; count++)
 		{
-			my_putchar(str[count]);
-			count++;
+			my_putchar(c[count]);
+		
 		}
 	}
 
-	return count;
+	return (count);
 }
 

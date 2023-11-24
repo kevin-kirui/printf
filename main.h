@@ -10,15 +10,10 @@
  * @ph: type char pointer of specifier
  * @function: function for conversion specifier
  */
-typedef struct format
-{
-	char *id;
-	int (*f)(void);
-} match;
 
 int my_putchar(char c);
 int _printf(const char *format, ...);
-int putss(const char *str);
+int putss(char *c);
 
 #endif
 
