@@ -1,6 +1,4 @@
-#include <stdarg.h>
 #include "main.h"
-#include <stdio.h>
 
 /**
  * _printf - Custom implementation of the printf function
