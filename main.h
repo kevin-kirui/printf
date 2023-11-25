@@ -11,7 +11,7 @@
  * @function: function for conversion specifier
  */
 
-int my_putchar(char c);
+int _putchar(char c);
 int _printf(const char *format, ...);
 int putss(char *c);
 

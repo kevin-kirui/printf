@@ -14,7 +14,7 @@ int putss(char *c)
 	{
 		for (count = 0; c[count] != '\0'; count++)
 		{
-			my_putchar(c[count]);
+			_putchar(c[count]);
 		
 		}
 	}
