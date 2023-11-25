@@ -11,6 +11,11 @@
  * @function: function for conversion specifier
  */
 
+struct format
+{
+	char *ph;
+	int (*function)(va_list);
+};
 int _putchar(char c);
 int _printf(const char *format, ...);
 int putss(char *c);
