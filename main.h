@@ -25,6 +25,7 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 int _print_string(const char *str);
 int print_integer(int num);
+int print_bin(va_list val);
 int putss(char *str);
 
 #endif
