@@ -26,6 +26,10 @@ int _printf(const char *format, ...)
 				case '%':
 					count += _putchar('%');
 					break;
+				case 'd':
+				case 'i':
+					count += print_integer(va_arg(args, int));
+					break;
 				default:
 					return (-1);
 			}
@@ -39,4 +43,3 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-
