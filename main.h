@@ -23,6 +23,7 @@ typedef struct format
 typedef int (*handler_func)(const char *, va_list);
 int _printf(const char *format, ...);
 int _putchar(char c);
+int _print_string(const char *str);
 int putss(char *str);
 
 #endif

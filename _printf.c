@@ -8,7 +8,6 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int count = 0;
-	const char *str = str;
 
 	va_start(args, format);
 
@@ -19,22 +18,13 @@ int _printf(const char *format, ...)
 			switch (*++format)
 			{
 				case 'c':
-					_putchar((char) va_arg(args, int));
-					count++;
+					count += _putchar((char) va_arg(args, int));
 					break;
 				case 's':
-					str = va_arg(args, char *);
-
-					while (*str)
-					{
-						_putchar(*str);
-						str++;
-						count++;
-					}
+					count += _print_string(va_arg(args, char *));
 					break;
 				case '%':
-					_putchar('%');
-					count++;
+					count += _putchar('%');
 					break;
 				default:
 					return (-1);
@@ -42,11 +32,11 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			putchar(*format);
-			count++;
+			count += _putchar(*format);
 		}
 		format++;
 	}
 	va_end(args);
 	return (count);
 }
+
