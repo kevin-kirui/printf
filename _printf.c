@@ -42,4 +42,9 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
+int main()
+{
+	_printf("Hello, world!\n");
+	return 0;
+}
 
